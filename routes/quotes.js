@@ -11,11 +11,11 @@ var router = express.Router()
  * Routes
  */
 
-// Return a user
+// Return a quote
 router.get('/', function (req, res) {
     res.json({
-        firstName: 'John',
-        lastName: 'Doe',
+         message: 'I\'ve never met a strong person with an easy past',
+         author : 'Atticus'
     });
 })
 
