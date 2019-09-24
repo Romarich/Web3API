@@ -4,6 +4,7 @@
 
 const express = require('express');
 const usersRouter = require('../routes/users');
+const quotesRouter = require('../routes/quotes');
 
 
 /**
@@ -23,6 +24,7 @@ const app = express();
 
 // Configure routes
 app.use('/users', usersRouter);
+app.use('/quotes', quotesRouter);
 
 // Start server
 var start = function (callback) {

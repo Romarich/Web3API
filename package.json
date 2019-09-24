@@ -1,5 +1,5 @@
 {
-  "name": "web3-2019-1-api",
+  "name": "nodemon",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,5 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "homepage": "http://nodemon.io",
+  "...": "... other standard package.json values",
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
+    "delay": "2500"
   }
 }
