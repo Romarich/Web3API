@@ -15,8 +15,7 @@ var router = express.Router()
 router.get('/', function (req, res) {
     res.json({
          message: 'I\'ve never met a strong person with an easy past',
-         author : 'Atticus',
-        yolo : "test"
+         author : 'Atticus'
     });
 })
 

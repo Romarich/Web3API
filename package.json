@@ -1,24 +1,19 @@
 {
-  "name": "nodemon",
+  "name": "web3-2019-1-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon ./index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2"
   },
-  "homepage": "http://nodemon.io",
-  "...": "... other standard package.json values",
-  "nodemonConfig": {
-    "ignore": [
-      "test/*",
-      "docs/*"
-    ],
-    "delay": "2500"
+  "devDependencies": {
+    "nodemon": "^1.19.2"
   }
 }
