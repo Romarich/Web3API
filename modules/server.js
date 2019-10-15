@@ -5,6 +5,7 @@
 const express = require('express')
 const usersRouter = require('../routes/users')
 const quotesRouter = require('../routes/quotes')
+const loginRouter = require('../routes/login')
 
 
 /**
@@ -24,10 +25,11 @@ const app = express()
 
 // Configure routes
 var myLogger = function (req, res, next) {
-    console.log('[SERVER] ' + req.type + ' ' + req.path)
+    console.log('[SERVER] ' + req.method + ' ' + req.path)
     next()
 }
 app.use(myLogger)
+app.use('/login', loginRouter)
 app.use('/users', usersRouter)
 app.use('/quotes', quotesRouter)
 
@@ -39,9 +41,6 @@ var start = function (callback) {
         if (callback) callback(null)
     })
 };
-
-
-
 
 /**
  * Exports
