@@ -2,9 +2,9 @@
  * Load modules
  */
 
-const express = require('express');
-const usersRouter = require('../routes/users');
-const quotesRouter = require('../routes/quotes');
+const express = require('express')
+const usersRouter = require('../routes/users')
+const quotesRouter = require('../routes/quotes')
 
 
 /**
@@ -12,45 +12,33 @@ const quotesRouter = require('../routes/quotes');
  */
 
 // Global variables
-const host = 'localhost';
-const port = 8080;
-const app = express();
+const host = process.env.SERVER_HOST
+const port = process.env.SERVER_PORT
+const app = express()
+
+
 
 /**
  * Configuration
  */
 
 // Configure routes
-app.use('/users', usersRouter);
-app.use('/quotes', quotesRouter);
+var myLogger = function (req, res, next) {
+    console.log('[SERVER] ' + req.type + ' ' + req.path)
+    next()
+}
+app.use(myLogger)
+app.use('/users', usersRouter)
+app.use('/quotes', quotesRouter)
+
 
 // Start server
 var start = function (callback) {
     app.listen(port, host, () => {
-        console.info(`[SERVER] Listening on http://${host}:${port}`);
-        if (callback) callback(null);
-    });
+        console.info(`[Server] Listening on http://${host}:${port}`)
+        if (callback) callback(null)
+    })
 };
-
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-
-// Connection URL
-const url = 'mongodb+srv://honorez.romaric@yahoo.fr:9AU&SMr=@cluster0-r4est.mongodb.net/test?retryWrites=true&w=majority';
-
-// Database Name
-const dbName = 'Web3APIServ';
-
-// Use connect method to connect to the server
-MongoClient.connect(url, function(err, client) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-
-    const db = client.db(dbName);
-
-    client.close();
-});
-
 
 
 
@@ -58,4 +46,4 @@ MongoClient.connect(url, function(err, client) {
 /**
  * Exports
  */
-exports.start = start;
+exports.start = start
